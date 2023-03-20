@@ -148,13 +148,27 @@ class Ui_PipetteCalculator(object):
     
     # do some math
     def calculate_pipette_entry(self):
-        
-            manipulator_angle = float(self.manipulator_angle.text())
-            cell_depth = float(self.cell_depth.text())
-            cell_distance_glass = float(self.glass_distance.text())
-            x_start = int(self.x_start.text())
-            z_start = int(self.z_start.text())
-            
+        try:
+            try:
+                manipulator_angle = float(self.manipulator_angle.text())
+            except:
+                manipulator_angle = 20
+            try:
+                cell_depth = float(self.cell_depth.text())
+            except:
+                cell_depth = 150
+            try:
+                cell_distance_glass = float(self.glass_distance.text())
+            except:
+                cell_distance_glass = 150
+            try:
+                x_start = int(self.x_start.text())
+            except:
+                x_start = 0
+            try:
+                z_start = int(self.z_start.text())
+            except:
+                z_start = 0
             # Math!\
             import math       
             
@@ -179,8 +193,8 @@ class Ui_PipetteCalculator(object):
             self.x_tar.setText(str(int(x_tar)))
             self.z_tar.setText(str(int(z_tar)))
             
-        # except:
-        #     self.cell_entry.setText("Error")
+        except:
+            self.cell_entry.setText("Error")
                 
 if __name__ == "__main__":
     import sys
