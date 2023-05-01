@@ -153,6 +153,7 @@ class Ui_PipetteCalculator(object):
                 manipulator_angle = float(self.manipulator_angle.text())
             except:
                 manipulator_angle = 20
+                print("No angle entered, set to:", manipulator_angle)
             try:
                 cell_depth = float(self.cell_depth.text())
             except:
